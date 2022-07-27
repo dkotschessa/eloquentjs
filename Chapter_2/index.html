@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="chessboard.html">Chessboard</a>
+    <script>
+      for (x = 0; x < 8; x++) {
+        string = '#'.repeat(x)
+        console.log(string)
+      }
+
+      for (x = 0; x < 101; x++) {
+        if ((x % 3 == 0) & x & (5 != 0)) {
+          console.log('Fizz')
+        }
+        if ((x % 5 == 0) & (x % 3 != 0)) {
+          console.log('Buzz')
+        }
+
+        if ((x % 3 == 0) & (x % 5 == 0)) {
+          console.log('FizzBuzz')
+        } else {
+          console.log(x)
+        }
+      }
+    </script>
+  </body>
+</html>
