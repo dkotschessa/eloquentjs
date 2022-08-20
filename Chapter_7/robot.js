@@ -17,11 +17,15 @@ const roads = [
   'Shop-Town Hall',
 ]
 
+
+
 function buildGraph(edges) {
   let graph = Object.create(null)
   function addEdge(from, to) {
     if (graph[from] == null) {
-      graph[from] = to
+      graph[from] = [to];
+    } else {
+      graph[from].push(to)
     }
   }
   for (let [from, to] of edges.map(r => r.split('-'))) {
@@ -56,10 +60,10 @@ class VillageState {
 let first = new VillageState('Post Office', [
   { place: 'Post Office', address: "Alice's House" },
 ])
-let next = first.move("Alice's House")
-console.log(next.place)
-console.log(next.parcels)
-console.log(first.place)
+// let next = first.move("Alice's House")
+// console.log(next.place)
+// console.log(next.parcels)
+// console.log(first.place)
 
 function runRobot(state, robot, memory) {
   for (let turn = 0; ; turn++) {
@@ -86,14 +90,14 @@ function randomRobot(state) {
 VillageState.random = function (parcelCount = 5) {
   let parcels = []
   for (let i = 0; i < parcelCount; i++) {
-    let address = randomPick(Object.keys(roadGraph))
-    let place
+    let address = randomPick(Object.keys(roadGraph));
+    let place;
     do {
-      place = randomPick(Object.keys(roadGraph))
-    } while (place == address)
+      place = randomPick(Object.keys(roadGraph));
+    } while (place == address);
     parcels.push({ place, address })
   }
-  return new VillageState('Post Office', parcels)
+  return new VillageState('Post Office', parcels);
 }
 
 runRobot(VillageState.random(), randomRobot)
