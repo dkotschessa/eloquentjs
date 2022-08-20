@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "name": "file:///Users/dkotschessa/eloquentJS/Chapter_7/robot.html",
+      "request": "launch",
+      "url": "file:///Users/dkotschessa/eloquentJS/Chapter_7/robot.html"
+    }
+  ]
+}
