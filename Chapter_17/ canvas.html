@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Before canvas</p>
+    <canvas width="120" height="60"></canvas>
+    <p>After canvas</p>
+    <script>
+      let canvas = document.querySelector('canvas')
+      let context = canvas.getContext('2d')
+      context.fillStyle = 'red'
+      context.fillRect(10, 10, 100, 50)
+    </script>
+
+    <canvas id="two"></canvas>
+    <script>
+      let cx = document.getElementById('two').getContext('2d')
+      cx.strokeStyle = 'blue'
+      cx.strokeRect(5, 5, 50, 50)
+      cx.lineWidth = 5
+      cx.strokeRect(135, 5, 50, 50)
+    </script>
+    <p></p>
+    <canvas id="three"></canvas>
+    <script>
+      let path = document.getElementById('three').getContext('2d')
+      path.beginPath()
+      for (let y = 10; y < 100; y += 10) {
+        path.moveTo(10, y)
+        path.lineTo(90, y)
+      }
+      path.stroke()
+    </script>
+    <p></p>
+    <canvas id="four"></canvas>
+    <script>
+      cz = document.getElementById('four').getContext('2d')
+      cz.beginPath()
+      cz.moveTo(50, 10)
+      cz.lineTo(10, 70)
+      cz.lineTo(90, 70)
+      cz.fill()
+    </script>
+    <canvas id="five"></canvas>
+    <script>
+      cr = document.getElementById('five').getContext('2d')
+      cr.beginPath()
+      cr.moveTo(10, 90)
+      // control = (60, 10) goal = (90, 90)
+      cr.quadraticCurveTo(60, 10, 90, 90)
+      cr.lineTo(60, 10)
+      cr.closePath()
+      cr.stroke()
+    </script>
+  </body>
+</html>

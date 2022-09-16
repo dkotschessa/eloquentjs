@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas> </canvas>
+    <script>
+      cx = document.querySelector('canvas')
+      pad = document.querySelector('canvas').getContext('2d')
+      cx.addEventListener('click', e => {
+        pad.beginPath()
+        pad.moveTo(0, 0)
+        pad.lineTo(e.clientX, e.clientY)
+        console.log(e.clientX)
+      })
+    </script>
+  </body>
+</html>
