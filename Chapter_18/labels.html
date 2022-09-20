@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>
+      <input type="radio" name="color" value="orange" />
+      Orange
+    </label>
+    <input type="radio" name="color" value="green">
+    green
+</label>
+<input type="radio" name="color" value="blue">
+Blue
+</label>
+<script>
+    let buttons = document.querySelectorAll("[name=color]");
+    for (let button of Array.from(buttons)) {
+        button.addEventListener("change", () => {
+            document.body.style.background = button.value;
+        })
+    }
+</script>
+<p></p>
+<select multiple>
+    <option value="1">0001</option>
+    <option value="2">0010</option>
+
+    <option value="4">0100</option>
+
+    <option value="8">1000</option>
+
+</select> = <span id = "output">0</span>
+
+<script>
+    let select = document.querySelector("select")
+    let output = document.getElementById("output")
+    select.addEventListener("change" , ()=> {
+        let number = 0;
+        for (let option of Array.from(select.options)) {
+            if (option.selected) {
+                number += Number(option.value);
+            }
+        }
+        output.textContent = number;
+    })
+</script>
+
+<input type="file" id="doc">
+<script>
+    let input = document.getElementById('doc')
+    input.addEventListener("change", () => {
+        if (input.files.length > 0) {
+            let file = input.files[0];
+            console.log("You choose", file.name);
+            if (file.type) console.log("It has type", file.type);
+        }
+    })
+</script>
+
+<input type="file" name="" id="readfile" multiple>
+<script>
+    let fileinput = document.getElementById("readfile");
+    input.addEventListener("change", () => {
+        for (let file of Array.from(fileinput.files)) {
+            let reader = new FileReader();
+            reader.addEventListener("load", () => {
+                console.log("File", file.name, "starts with",
+                reader.result.slide(0,20));
+            });
+            reader.readAsText(file)
+        }
+    });
+</script>
+  </body>
+</html>

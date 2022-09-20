@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let squareWorker = new Worker('./squareworker.js')
+      squareWorker.addEventListener('message', event => {
+        console.log('The worker responsded:', event.data)
+      })
+      squareWorker.postMessage(10)
+      squareWorker.postMessage(24)
+    </script>
+
+    <script>
+      let bombTimer = setTimeout(() => {
+        console.log('BOOM!')
+      }, 500)
+
+      if (Math.random() < 0.5) {//50% chance
+        console.log('Defused')
+        clearTimeout(bombTimer)
+      }
+    </script>
+  </body>
+</html>
