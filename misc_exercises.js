@@ -20,8 +20,13 @@ class Group {
         return (this.values.includes(value))
     };
     from(iterable) {
-        for (i of iterable) {
+        for (let i of iterable) {
             this.add(i)
+        }
+    }
+    next() {
+        for (let i of this.values){
+            return i
         }
     }
 
